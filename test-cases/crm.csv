@@ -1,0 +1,7 @@
+﻿ID,Priority,Area,Title,Preconditions,Steps,Expected
+CRM-001,P0,CRM,Create customer,CRM user,Create valid customer,Customer created once
+CRM-002,P1,CRM,Duplicate email handling,Customer exists,Create same email,Duplicate policy enforced
+CRM-003,P0,Permissions,Read-only user edits customer,Read-only role,Attempt edit via UI/API,Rejected; data unchanged
+CRM-004,P1,Workflow,Lead moves to qualified,Lead exists,Set required fields; qualify,Status changes; history saved
+CRM-005,P1,Integration,Incident links to customer,Customer and incident exist,Attach incident,Bidirectional reference displayed correctly
+CRM-006,P1,Search,Search by partial name/email,Dataset seeded,Search variants,Relevant matches; no unrelated leakage

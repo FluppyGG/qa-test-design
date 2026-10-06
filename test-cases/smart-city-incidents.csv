@@ -1,0 +1,11 @@
+﻿ID,Priority,Area,Title,Preconditions,Steps,Expected
+INC-001,P0,Web,Create incident with valid mandatory fields,Dispatcher logged in,Fill valid data; submit,Incident created; unique ID; status NEW
+INC-002,P0,Web/API,Reject missing mandatory location,Dispatcher logged in,Omit location; submit,Validation shown; no incident persisted
+INC-003,P0,Real-time,Second client receives new incident,Two clients online,Create incident in A,B receives incident without manual refresh
+INC-004,P0,Real-time,Concurrent status update,A and B open same incident,A sets IN_PROGRESS; B sets CANCELLED nearly simultaneously,Deterministic final state; conflict handled; audit trail retained
+INC-005,P1,Mobile,Reconnect after offline period,Mobile has incident cached,Go offline; change server state elsewhere; reconnect,Mobile refreshes to authoritative server state
+INC-006,P1,Permissions,Field user cannot close restricted incident,Field role logged in,Attempt CLOSED transition,Action rejected; no backend state change
+INC-007,P1,Web,Filters survive real-time updates,Filter by district,Receive incident from another district,Out-of-scope item does not appear
+INC-008,P1,API,Unknown incident id,Valid auth,GET/update unknown ID,404 / domain error; no side effects
+INC-009,P2,UI,Long description rendering,Incident with long text,Open details,Readable layout; no overlap/truncation of critical info
+INC-010,P1,Audit,Status change recorded,Existing incident,Change ACKNOWLEDGED -> IN_PROGRESS,Actor/time/from/to recorded once

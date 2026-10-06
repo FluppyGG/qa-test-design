@@ -1,0 +1,9 @@
+﻿ID,Priority,Area,Title,Preconditions,Steps,Expected
+PAY-001,P0,Payment,Successful payment,Valid order/card,Submit once,Approved; one transaction; UI/API/DB consistent
+PAY-002,P0,Payment,Double-click submit,Valid order/card,Double-click rapidly,Single charge/transaction
+PAY-003,P0,Payment/API,Retry same idempotency key,First request completed,Resend identical request,Original result returned; no duplicate
+PAY-004,P0,Payment,Gateway timeout,Gateway delayed,Submit; client times out,Recoverable state; no false success; safe retry
+PAY-005,P0,Payment,Insufficient funds,Decline setup,Submit,Declined; order unpaid
+PAY-006,P1,Security,Sensitive gateway data in error,Force gateway error,Inspect UI/API/logs,No PAN/CVV/secrets exposed
+PAY-007,P1,Data,Amount mismatch,Manipulate client amount,Submit,Server uses trusted amount/rejects mismatch
+PAY-008,P1,Mobile,App background during payment,Payment in progress,Background app; return,Final state recovered correctly
